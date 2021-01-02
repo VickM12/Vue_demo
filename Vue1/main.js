@@ -1,6 +1,7 @@
 var app = new Vue({
     el: '#app',
     data: {
-        product: 'Socks'
+        product: 'Coat',
+        description: 'Keeps you warm and dry'
     }
 })
