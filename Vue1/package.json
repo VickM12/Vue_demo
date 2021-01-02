@@ -1,0 +1,9 @@
+{
+  "name": "vue1",
+  "version": "0.0.0",
+  "description": "Vue1",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  }
+}
