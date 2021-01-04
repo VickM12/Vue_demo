@@ -14,7 +14,13 @@
           
           <a v-bind:href="imgHref"><img v-bind:src="image"></a>
         </div>
+        <div class="product-info">
         <h1>Product: {{product}}</h1>
+        <p v-show="inventory > 10">In Stock</p>
+        <p v-show="inventory <= 10 && inventory > 0">Almost Sold Out</p>
+        <p v-else>Out of Stock</p>
+        <p v-if="onSale">On Sale!</p>
+        </div>
         
       </div>
     </div>
