@@ -9,39 +9,43 @@
   <body>
     <div class='nav-bar'></div>
     <div id="app">
+
       <div class="product">
         <div class="product-image">
-          
           <a v-bind:href="imgHref"><img v-bind:src="image"></a>
         </div>
+
         <div class="product-info">
-        <h1>Product: {{product}}</h1>
-        <p v-show="inventory > 10">In Stock</p>
+        <h1>{{product}}</h1>
+        <p v-if="inventory > 10">In Stock</p>
         <p v-show="inventory <= 10 && inventory > 0">Almost Sold Out</p>
-        <p v-else>Out of Stock</p>
-        <p v-if="onSale">On Sale!</p>
+        <p v-show="inventory <= 0">Out of Stock</p>
+        <p v-if="onSale"><h2>On Sale!</h2></p>
+        
         <ul>
           <li v-for="detail in details">{{detail}}</li>
         </ul>
         <h2>Colors</h2>
         <div v-for="variant in variants">
-          
           <p @mouseover="updateProduct(variant.variantImage)"> {{ variant.variantColor}}</p>
         </div>
 
         <ul>Sizes
           <li v-for="size in sizes">{{size}}</li>
         </ul>
-        <button v-on:click="addToCart">Add to Cart</button>
+
+        <button v-show="inventory > 0" v-on:click="addToCart">Add to Cart</button>
         <div v-if="cart >= 1">
         <button v-on:click="removeFromCart">Remove from Cart</button></div>
         <div class="cart">
-
           <p>Cart({{cart}})</p>
       </div>
+      
     </div>
     <!-- built files will be auto injected -->
+    
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="main.js"></script>
+    
   </body>
 </html>
